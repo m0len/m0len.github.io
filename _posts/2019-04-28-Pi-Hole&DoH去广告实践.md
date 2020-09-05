@@ -75,10 +75,10 @@ $ ./adlists.sh
 #### 什么是 DoH?
 
 > DNS over HTTPS (DoH) is a protocol for performing remote Domain Name System (DNS) resolution via the HTTPS protocol. A goal of the method is to increase user privacy and security by preventing eavesdropping and manipulation of DNS data by man-in-the-middle attacks.
+> 
+> --Wikipeadia
 
---Wikipeadia
-
-> 有趣新闻一则：
+> 新闻一则：
 > [UK ISP group names Mozilla 'Internet Villain' for supporting 'DNS-over-HTTPS'](https://www.zdnet.com/article/uk-isp-group-names-mozilla-internet-villain-for-supporting-dns-over-https/)
 
 总之，DoH 是一个挺好的东西，实现的原理也非常简单。简单理解是先与 DNS 服务器建立一个安全链接，然后再发送 DNS 查询。目前提供 DoH 客户端应用的好像只有 Cloudflare 一家，因此就以 Cloudflare 提供的 `cloudflared` 客户端为例。
