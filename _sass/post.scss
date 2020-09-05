@@ -23,6 +23,15 @@
   margin: 10px auto;
 }
 
+.post-content a {
+  text-decoration: underline wavy magenta;
+  color: #000;
+}
+
+.post-content a:hover {
+  color: magenta;
+}
+
 .post-info {
   line-height: 24px;
   margin: 50px 0;
