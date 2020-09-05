@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Note taking, Blog, etc.
+Log, Blog.
