@@ -12,7 +12,7 @@ categories: [Networking]
 
 使用官方安装命令：
 
-``` BASH
+```
 $ curl -sSL https://install.pi-hole.net | bash
 ```
 
@@ -20,7 +20,7 @@ $ curl -sSL https://install.pi-hole.net | bash
 
 ## 配置 Pi-Hole
 
-``` BASH
+```
 # adlists.list
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 https://mirror1.malwaredomains.com/files/justdomains
@@ -48,7 +48,7 @@ file:///root/adblock.hosts #这是自定义 hosts 的格式，Pi-Hole 支持直�
 
 以Easylist + Easylist China为例：
 
-``` BASH
+```
 # 新建一个 adlists.sh 文件
 $ vim adlists.sh
 
@@ -99,32 +99,32 @@ $ ./adlists.sh
 
 * 创建一个新用户用于 `cloudflared` 
 
-``` BASH
+```
 $ sudo useradd -s /usr/sbin/nologin -r -M cloudflared 
 ```
 
 * 创建配置文件
 
-``` BASH
+```
 $ vim /etc/default/cloudflared
 ```
 
 * 修改文件权属
 
-``` BASH
+```
 $ sudo chown cloudflared:cloudflared /etc/default/cloudflared
 $ sudo chown cloudflared:cloudflared /usr/local/bin/cloudflared
 ```
 
 * 创建 `systemd` 脚本以自动启动和后台运行
 
-``` BASH
+```
 $ vim /lib/systemd/system/cloudflared.service
 ```
 
 * 写入如下内容
 
-``` BASH
+```
 [Unit]
 Description=cloudflared DNS over HTTPS proxy
 After=syslog.target network-online.target
@@ -144,7 +144,7 @@ WantedBy=multi-user.target
 
 * 自启及运行
 
-``` BASH
+```sh
 $ sudo systemctl enable cloudflared
 $ sudo systemctl start cloudflared
 $ sudo systemctl status cloudflared
@@ -152,13 +152,13 @@ $ sudo systemctl status cloudflared
 
 * 测试
 
-``` BASH
+```sh
 $ dig @127.0.0.1 -p 5053 google.com
 ```
 
 出现以下输出说明正常运行
 
-``` 
+```sh
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> @127.0.0.1 -p 5053 google.com
 ; (1 server found)
 ;; global options: +cmd

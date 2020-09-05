@@ -14,13 +14,13 @@ categories: [Container]
 
 使用编辑器打开 docker 的 systemd 文件：
 
-``` BASH
+```sh
 $ vim /usr/lib/systemd/system/docker.service
 ```
 
 找到 `[Service]` 这段，把 `ExecStart` 后面的内容修改如下：
 
-``` BASH
+```sh
 [Service]
 ......
 ......
@@ -35,7 +35,7 @@ ExecStart=/usr/bin/dockerd --containerd=/run/containerd/containerd.sock
 
 这里使用了 **anyesu**（[GitHub](https://github.com/anyesu)，[简书](https://www.jianshu.com/u/c5327915649c)） 的[ TLS 证书一键脚本](https://www.jianshu.com/p/7ba1a93e6de4)。省了很多功夫，特此感谢。
 
-``` BASH
+```sh
 #!/bin/bash
 # @author: anyesu
 
@@ -115,7 +115,7 @@ chmod -f 0400 ca-key.pem server/server-key.pem client/key.pem
 
 新建一个 `tls.sh` 文件，写入以上内容并保存，给 `tls.sh` 添加可执行权限并运行，即可自动在当前目录生成**根证书，服务端证书和客户端证书**。
 
-``` BASH
+```sh
 #新建 tls.sh 文件并粘贴以上内容
 $ vim tls.sh
 
@@ -136,19 +136,19 @@ ca.pem  server-cert.pem  server-key.pem
 
 生成证书后，将服务端证书移动到 `/etc/docker/` 目录下。
 
-``` BASH
+```sh
 $ mv ./server/* /etc/docker/
 ```
 
 ## 在防火墙开启 2376 端口允许 SSL 连接
 
-``` BASH
+```sh
 $ iptables -A INPUT -p tcp -m tcp --dport 2376 -j ACCEPT
 ```
 
 ##### *可选：仅允许指定 IP 地址访问 2376 端口
 
-``` BASH
+```sh
 #将 xxx.xxx.xxx.xxx 换成管理机的 IP 地址
 $ iptables -A INPUT -s xxx.xxx.xxx.xxx -p tcp -m tcp --dport 2376 -j ACCEPT
 ```
@@ -157,7 +157,7 @@ $ iptables -A INPUT -s xxx.xxx.xxx.xxx -p tcp -m tcp --dport 2376 -j ACCEPT
 
 由于 Docker 默认是不开启远程访问的，所以需要配置一下 Daemon 以启用它。方法是在 `/etc/docker/` 目录下新建一个 `daemon.json` 配置文件。
 
-``` BASH
+```sh
 #新建 daemon.json
 $ vim /etc/docker/daemon.json
 
@@ -178,7 +178,7 @@ $ vim /etc/docker/daemon.json
 
 官网推荐使用 Docker 来部署，我也是这样做的，这是最简便的方式：
 
-``` BASH
+```sh
 #注意挂载 docker.sock，这是控制本地 Docker Container 的一个接口
 $ docker run -d -p 8000:8000 -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 ```

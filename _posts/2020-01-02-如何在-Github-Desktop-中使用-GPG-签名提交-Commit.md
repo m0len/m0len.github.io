@@ -20,7 +20,7 @@ Windows 下可以使用 Git 图形客户端（[Git Bash](https://git-scm.com/dow
 
 Windows 下生成密钥对的命令如下：
 
-``` BASH
+```sh
 $ gpg --full-generate-key
 ```
 
@@ -34,7 +34,7 @@ $ gpg --full-generate-key
 
 列出所有的密钥，并获取密钥 ID
 
-``` BASH
+```sh
 $ gpg --list-secret-keys --keyid-format LONG
 
 ----------------------------------
@@ -47,7 +47,7 @@ ssb   4096R/42B317FD4BA89E7A 2016-03-10
 
 使用 ASCII 格式导出公钥：
 
-``` BASH
+```sh
 $ gpg --armor --export 3AA5C34371567BD2
 ```
 
@@ -61,7 +61,7 @@ $ gpg --armor --export 3AA5C34371567BD2
 
 打开 `.gitconfig` 文件
 
-``` BASH
+```sh
 # 方法一
 $ git config --global --edit
 # 方法二
@@ -91,7 +91,7 @@ $ vim C:\Users\xxx\.gitconfig
 
 **!!! 重点注意：Windows 和 Mac 系统下需要安装一个 GPG 图形客户端才能正常使用 GPG 签名。否则在 `Commit` 时会出现类似以下的错误，这是缺少输入密钥密码的地方所导致的。**
 
-``` BASH
+```sh
 Commit failed - exit code 128 received, with output: 'error: gpg failed to sign the data
 fatal: failed to write commit object'
 ```

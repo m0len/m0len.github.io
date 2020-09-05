@@ -22,12 +22,6 @@ layout: default
       <a href="{{ site.baseurl }}/category/{{ category | slugify }}" class="post-category">{{ category }}</a>
       {% endfor %}
     </div>
-    <div class="post-tags">
-      <span>{{ site.data.lang[site.language].post_tags }}</span>
-      {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
-      {% endfor %}
-    </div>
     <div class="post-tools">
       {% if page.next %}
       <div>
