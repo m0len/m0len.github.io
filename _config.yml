@@ -55,8 +55,7 @@ jekyll-archives:
   enabled: 
   - catagories
   layout: archive
-  permalinks:
-    year: '/:year/'
+
 
 # Build settings
 markdown: kramdown
