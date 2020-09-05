@@ -52,7 +52,8 @@ sass:
 
 # Category settings
 jekyll-archives:
-  enabled: []
+  enabled: 
+  - catagories
   layout: archive
   permalinks:
     year: '/:year/'
