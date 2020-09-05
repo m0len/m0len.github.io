@@ -72,7 +72,7 @@ $ vim C:\Users\xxx\.gitconfig
 
 添加以下内容
 
-``` INI
+```sh
 [user]
   name = YOUR_GITHUB_NAME  #用户名
   email = YOUR_GITHUB_EMAIL  #邮箱
