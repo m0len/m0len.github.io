@@ -17,7 +17,7 @@ title: Note Taking Space
 email: m0len@outlook.com
 name: m0len
 description: >- # this means to ignore newlines until "baseurl:"
-  -
+
 keywords: [blog]
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
@@ -35,7 +35,7 @@ language: zh-cn
 
 analytics: UA-135080102-1  # the Google Analytics property ID, e.g. UA-XXXXX-Y
 
-paginate: 25
+paginate: 2500
 paginate_path: "/page:num/"
 
 comments: true  # enable comments
@@ -52,13 +52,10 @@ sass:
 
 # Category settings
 jekyll-archives:
-  enabled: 
-    - categories
-    - tags
+  enabled: []
   layout: archive
   permalinks:
-    category: /category/:name/
-    tag: /tag/:name/
+    year: '/:year/'
 
 # Build settings
 markdown: kramdown
