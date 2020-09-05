@@ -1,5 +1,5 @@
 - default: menu_category
-  url:   ":year"
+  url:   "catagory"
 
 - default: menu_about
   url:   "about"
