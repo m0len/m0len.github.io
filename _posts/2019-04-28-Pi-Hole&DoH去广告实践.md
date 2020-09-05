@@ -5,6 +5,7 @@ comments: true
 date: 2019-04-28
 description: ""
 keywords: "lede, pihole, router, gateway, x86, arm"
+categories: [Networking]
 ---
 
 ## 安装 Pi-Hole

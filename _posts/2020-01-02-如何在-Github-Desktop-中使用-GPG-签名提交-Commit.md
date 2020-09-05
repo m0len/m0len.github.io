@@ -5,9 +5,10 @@ comments: true
 date: 2020-01-02
 description: ""
 keywords: "github, gpg, commit, desktop"
+categories: [Security]
 ---
 
-> 时间来到2020，这是2020的第一篇。新的一年，祝好，祝顺利。
+> 2020的第一篇。新的一年，祝好。
 
 ## 生成密钥对并添加到 Github
 

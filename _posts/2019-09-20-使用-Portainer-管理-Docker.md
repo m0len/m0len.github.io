@@ -5,6 +5,7 @@ comments: true
 date: 2019-09-20
 description: ""
 keywords: "docker, portainer, gui, linux"
+categories: [Container]
 ---
 
 > 本文以 CentOS 7 系统为例，其他发行版可能略有不同

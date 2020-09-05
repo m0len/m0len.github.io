@@ -5,6 +5,7 @@ comments: true
 date: 2019-08-27
 description: ""
 keywords: "python, mysql, sql, database, mariadb"
+categories: [SQL]
 ---
 
 > 本文为个人总结的 SQL 笔记（上集），参考自《SQL 必知必会（第 4 版）》，人民邮电出版社出版。
