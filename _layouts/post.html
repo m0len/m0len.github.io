@@ -19,7 +19,7 @@ layout: default
     <div class="post-categories">
       <span>{{ site.data.lang[site.language].post_categories }}</span>
       {% for category in page.categories %}
-      <a href="{{ site.baseurl }}/category/{{ category | slugify }}" class="post-category">{{ category }}</a>
+      <a href="{{ site.baseurl }}/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
       {% endfor %}
     </div>
     <div class="post-tools">
