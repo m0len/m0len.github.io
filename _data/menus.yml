@@ -1,3 +1,6 @@
+- default: menu_index
+  url:   ""
+
 - default: menu_category
   url:   "catagory"
 
