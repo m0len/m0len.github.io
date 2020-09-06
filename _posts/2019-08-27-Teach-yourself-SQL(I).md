@@ -12,6 +12,10 @@ categories: [SQL]
 
 > 本文所使用的 SQL 服务端为 MariaDB。
 
+* ToC
+
+{:toc}
+
 ## MySQL in Python
 
 > Python-MySQL tutorial in `w3schools.com` 
