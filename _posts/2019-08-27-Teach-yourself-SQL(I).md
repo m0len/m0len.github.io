@@ -12,9 +12,6 @@ categories: [SQL]
 
 > 本文所使用的 SQL 服务端为 MariaDB。
 
-* ToC
-
-{:toc}
 
 ## MySQL in Python
 
@@ -170,9 +167,10 @@ for x in myresult:
     print(x)
 ```
 
- ## MySQL Commands
+
+## MySQL Commands
  
-以下是个人总结。
+以下是个人总结部分。
 
 ### 检索数据
 
