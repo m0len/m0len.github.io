@@ -8,6 +8,11 @@ keywords: "lede, pihole, router, gateway, x86, arm"
 categories: [Networking]
 ---
 
+---
+* ToC
+{:toc}
+---
+
 ## 安装 Pi-Hole
 
 使用官方安装命令：

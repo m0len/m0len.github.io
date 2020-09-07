@@ -8,6 +8,11 @@ keywords: "python, mysql, sql, database, mariadb"
 categories: [SQL]
 ---
 
+---
+* ToC
+{:toc}
+---
+
 > 本文为个人总结的 SQL 笔记（上集），参考自《SQL 必知必会（第 4 版）》，人民邮电出版社出版。
 
 > 本文所使用的 SQL 服务端为 MariaDB。
