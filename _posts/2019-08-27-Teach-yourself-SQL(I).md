@@ -501,7 +501,7 @@ WHERE column1 LIKE '[^xy]%';
 使用 SQL Server： `+` 
 
 ``` sql
-#+号联结
+# + 号联结
 SELECT column1 + 'x' + column2 + 'y'
 FROM table1;
 ```
@@ -509,7 +509,7 @@ FROM table1;
 使用 MySQL 或 MariaDB： `Concat()` ；该值是没有列名的，**需要命名列名使用 `AS` 语句**。
 
 ``` sql
-#Concat()联结
+# Concat() 联结
 SELECT Concat(column1, 'x', column2, 'y')
 AS new_column_name
 FROM table1;
@@ -568,10 +568,10 @@ UPPER() #转换字符串为大写
 输入：
 
 ``` sql
-#SOUNDEX()例子
+# OUNDEX()例子
 SELECT column1, column2
 FROM table1
-WHERE SOUNDEX(column2) = SOUNDEX('Michael Green'); #Michael 和 Michelle 发音相近
+WHERE SOUNDEX(column2) = SOUNDEX('Michael Green'); # ichael 和 Michelle 发音相近
 ```
 
 输出：
@@ -585,7 +585,7 @@ WHERE SOUNDEX(column2) = SOUNDEX('Michael Green'); #Michael 和 Michelle 发音�
 ``` sql
 SELECT column1
 FROM table1
-WHERE YEAR(column2) = 2012; #MySQL\MariaDB 形式
+WHERE YEAR(column2) = 2012; # ySQL\MariaDB 形式
 ```
 
 ##### 3. 数值处理
