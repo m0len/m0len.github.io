@@ -4,8 +4,8 @@ title: "如何在 Github Desktop 中使用 GPG 签名提交 Commit"
 comments: true
 date: 2020-01-02
 description: ""
-keywords: "github, gpg, commit, desktop"
 categories: [Security]
+tags: [github, gpg, commit, desktop]
 ---
 
 > 2020的第一篇。新的一年，祝好。

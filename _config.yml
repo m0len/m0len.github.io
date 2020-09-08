@@ -16,8 +16,7 @@
 title: LOGGER
 email: 
 name: m0len
-description: Logger for Tech
- >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines until "baseurl:"
 
 keywords: [blog, tech, coding]
 baseurl: "" # the subpath of your site, e.g. /blog

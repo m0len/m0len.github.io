@@ -4,8 +4,8 @@ title: "Pi-Hole 搭配 DoH 去广告实践"
 comments: true
 date: 2019-04-28
 description: ""
-keywords: "lede, pihole, router, gateway, x86, arm"
 categories: [Networking]
+tags: [lede, pihole, router, gateway, x86, arm, network, doh, cloudflare, adblock]
 ---
 
 ---

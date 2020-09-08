@@ -4,8 +4,8 @@ title: "SQL 笔记（上集）"
 comments: true
 date: 2019-08-27
 description: ""
-keywords: "python, mysql, sql, database, mariadb"
 categories: [SQL]
+tags: [python, mysql, sql, database, mariadb]
 ---
 
 ---

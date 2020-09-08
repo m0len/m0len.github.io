@@ -4,8 +4,8 @@ title: "使用 Portainer 管理 Docker"
 comments: true
 date: 2019-09-20
 description: ""
-keywords: "docker, portainer, gui, linux"
 categories: [Container]
+tags: [docker, portainer, gui, linux, centos]
 ---
 
 ---
