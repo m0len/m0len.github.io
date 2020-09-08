@@ -16,9 +16,10 @@
 title: LOGGER
 email: 
 name: m0len
-description: >- # this means to ignore newlines until "baseurl:"
+description: Logger for Tech
+ >- # this means to ignore newlines until "baseurl:"
 
-keywords: [blog]
+keywords: [blog, tech, coding]
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 domain: "m0len.github.io" # the domain name for your site, e.g. example.com
