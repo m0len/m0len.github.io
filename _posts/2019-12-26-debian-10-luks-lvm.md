@@ -17,7 +17,7 @@ tags: [debian, lvm, luks, encrypt]
 
 ## 分区方案
 
-![00plan](https://github.com/m0len/m0len.github.io/raw/master/img/lukslvm.png)
+![00plan](https://github.com/m0len/m0len.github.io/raw/main/img/lukslvm.png)
 
 ## 选择手动分区
 
