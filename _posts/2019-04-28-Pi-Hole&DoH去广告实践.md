@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pi-Hole 搭配 DoH 去广告实践"
+title: "Pi-Hole 搭配 DoH 加密 DNS 查询以及去广告"
 comments: true
 date: 2019-04-28
 description: ""
