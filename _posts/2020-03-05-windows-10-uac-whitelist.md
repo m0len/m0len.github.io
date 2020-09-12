@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "被 Windows 10 管理员运行搞烦躁？其实可以设置白名单"
+title: "被 Windows 10 管理员运行搞烦躁？设置 UAC 管理员权限白名单"
 comments: true
 date: 2020-03-05
 description: ""
