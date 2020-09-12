@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Docker 初探（持续更新）"
+title: "Docker 初探（持续更新中）"
 comments: true
 date: 2019-09-15
 description: ""

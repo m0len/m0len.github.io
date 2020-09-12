@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "提高 Windows 10 效率的一些软件"
+title: "一些可以提高 Windows 10 使用效率的软件"
 comments: true
 date: 2020-01-19
 description: ""
@@ -23,9 +23,9 @@ tags: [windows, software, linux, mac, wsl, everything, sharpkeys, winhotkey, ter
 
 这是我重新学习 Windows 系统的一篇记录。
 
-## 需求 <——> 替代
+## 需求 —— 替代
 
-### Time Machine <——> 文件历史记录
+### Time Machine —— 文件历史记录
 
 Mac 机上的杀手级应用之一，开启之后会每隔一段时间备份用户电脑磁盘上的所有文件，第一次使用的体验就真的像在坐时光机器那般美妙，因为实在是太无感和舒心的体验了。一旦遇上病毒删除或者加密了文件，又或是遇上磁盘损坏等情况，都可以恢复备份过的任一时间段里的文件。即使是没有这么极端的情况，比如修改了文件没有保存，都可以通过“乘坐”时光机器“回到过去”，那种感觉只有丢过数据的人才能明白。
 
@@ -56,7 +56,7 @@ Windows 规定需要把文件历史记录保留在非本地磁盘的存储设备
 然后在对话框中选择想要恢复到的文件版本，选择时还能通过打开文件查看文件内容来作决定：
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/file-recover-select-version.png)
 
-### Spotlight <——> Everything
+### Spotlight —— Everything
 
 Mac 机上的杀手级应用之二，可以搜索电脑上的一切应用、文件，速度极快，比 Win 下的文件管理器里的搜索好用太多。但是别担心，Win 上早就有类似的应用了，那就是大名鼎鼎的 **Everything**（[官网](https://www.voidtools.com/)）。
 
@@ -64,7 +64,7 @@ Mac 机上的杀手级应用之二，可以搜索电脑上的一切应用、文�
 
 主界面简洁明了，所以打开速度也很快，能媲美系统原生应用。搜索最重要的就是索引，**Everything** 建立索引的速度也非常快，即使是新的文件也可以马上被搜索到，无需像 Windows 资源管理器的搜索一样等待进度条。
 
-### Command-Alt <——> SharpKeys
+### Command-Alt —— SharpKeys
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/sharpkeys-interface.png)
 
@@ -72,7 +72,7 @@ Mac 机上的杀手级应用之二，可以搜索电脑上的一切应用、文�
 
 > [Because Mac OS is better. It just is.————Rio Weber](https://medium.com/riow/make-alt-key-ctrl-on-windows-10-just-like-mac-c1726703e412)
 
-### Terminal <——> WSL
+### Terminal —— WSL
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/wsl-interface.png)
 
@@ -86,7 +86,7 @@ Mac 机上的杀手级应用之二，可以搜索电脑上的一切应用、文�
 
 不说别的，在不想费时间打开虚拟机的场合，有一个可以立刻使用的 Linux 对于使用者来说也非常方便。
 
-### Split View <——> AquaSnap、PowerToys
+### Split View —— AquaSnap、PowerToys
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/aquasnap-interface.png)
 
@@ -100,7 +100,7 @@ Mac 机上的杀手级应用之二，可以搜索电脑上的一切应用、文�
 
 在这里，可以设置各种不同的分屏布局，从数量到样式，还可以套用自带的模板，快速设置分屏形式。
 
-### Keyboard Shortcuts <——> WinHotkey
+### Keyboard Shortcuts —— WinHotkey
 
 在 Linux 某些发行版的桌面坏境中（比如 GNOME），可以设置一些键盘快捷键，如最常用的 `Ctrl` + `Alt` + `T` 打开终端，是非常实用且使用率很高的设置。在 Win 下，也有一个类似的应用，**WinHotkey**（[官网](https://directedge.us/content/winhotkey)）。
 
@@ -108,13 +108,13 @@ Mac 机上的杀手级应用之二，可以搜索电脑上的一切应用、文�
 
 这个软件的功能和它的名字一样简单直白，没有任何花哨的界面和不相干的功能，它能且只能配置快捷键，让你快速地打开一些应用、文件或网址。
 
-### Aria2 <——> Photon
+### Aria2 —— Photon
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/photon-interface.png)
 
 Aria2 是一个开源的下载工具，支持种子、HTTP 等协议。还能通过伪装 BT 客户端，用于 PT。但它只有命令行界面，使用起来不是特别方便，于是很多人为其开发了图形界面，**Photon**（[官网](https://github.com/alanzhangzm/Photon)）就是其中之一。在 Linux 下使用的话可以用 Docker 来搭建，非常方便。说到这里，必须要吐槽一个 Windows 10 的问题。在 Windows 10 下，Docker 的实现方法是 Hyper-V 的一个虚拟机（Linux 虚拟机，可以设置为 Windows 虚拟机，但是很多 Docker 镜像都是基于 Linux 的，这还怎么用？），而 Hyper-V 和 其他虚拟机如 Virtual Box 又有冲突，权衡过后我放弃了 Hyper-V，也就放弃了 Docker for Windows，所以只能找一个图形客户端来用 Aria2 了。
 
-### CLI <——> PowerShell Core 6
+### CLI —— PowerShell Core 6
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/powershellcore-interface.png)
 
@@ -124,13 +124,13 @@ Aria2 是一个开源的下载工具，支持种子、HTTP 等协议。还能通
 
 这是我用过最顺手的 Windows 命令行，相比之下传统的 CMD 简直是半成品。但与 Mac 和 Linux 相比的话还是有很大差距，希望拥抱开源的微软可以持续优化吧。
 
-### Editor <——> Visual Studio Code
+### Editor —— Visual Studio Code
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/vscode-interface.png)
 
 一个万能编辑器，也是我正用来写博客的工具。借助数量庞大的插件，它可以支持目前任何一种主流或非主流的编程语言、脚本语言，甚至是 Markdown（写 Markdown 舒适）。它就是微软自家的 Visual Studio Code（[官网](https://code.visualstudio.com/)）。这个应该不需要多介绍了，Google 一下几乎全是赞美之言，而且它正变得越来越出名，关键它还是开源的。
 
-### Finder <——> Winaero Tweaker
+### Finder —— Winaero Tweaker
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/winaero-interface.png)
 

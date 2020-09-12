@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在 Github Desktop 中使用 GPG 签名提交 Commit"
+title: "在 Github Desktop 中使用 GPG 对 commit 签名"
 comments: true
 date: 2020-01-02
 description: ""

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS 服务器安装 Portainer 管理 Docker Container"
+title: "在 CentOS 服务器上安装 Portainer 来管理 Docker Container"
 comments: true
 date: 2019-09-20
 description: ""
