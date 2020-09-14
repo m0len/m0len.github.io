@@ -75,7 +75,7 @@ $ ./adlists.sh
 
 配置好 Pi-Hole 后，只需将主路由 DHCP 设置中的 DNS 服务器设置成 Pi-Hole 的 IP 地址即可。
 
-## （可选）使用 DoH
+## 使用 DoH（可选）
 
 #### 什么是 DoH?
 
