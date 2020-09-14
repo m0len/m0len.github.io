@@ -69,7 +69,7 @@ tags: [UAC, windows, win10, windows10, whitelist]
 
 ![](https://github.com/m0len/m0len.github.io/raw/master/img/alongside-new-instance.png)
 
-## 如何方便地打开这个软件
+## 如何使用
 
 可以在一个专门的地方，比如桌面，右键新建一个“快捷方式”。
 
