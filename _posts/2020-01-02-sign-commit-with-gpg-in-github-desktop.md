@@ -8,6 +8,7 @@ categories: [Security]
 tags: [github, gpg, commit, desktop]
 ---
 
+**目录**
 * ToC
 {:toc}
 ---
@@ -18,7 +19,7 @@ tags: [github, gpg, commit, desktop]
 
 这一步非常简单，可以参考[官方教程](https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key)，以下提供简略步骤。
 
-### 1
+### 使用 Git Bash 生成密钥对
 
 Windows 下可以使用 Git 图形客户端（[Git Bash](https://git-scm.com/downloads)）中的 `gpg` 命令，Linux 和 Mac 下可以用 Terminal 安装 `gpg` 工具。
 
@@ -34,7 +35,7 @@ $ gpg --full-generate-key
 2. user name 填写 Github 的登录名；
 3. 如果开了 private mail 的话 mail 填写 Github 提供的那个 noreply mail 地址。
 
-### 2
+### 导出公钥
 
 列出所有的密钥，并获取密钥 ID
 
@@ -61,7 +62,7 @@ $ gpg --armor --export 3AA5C34371567BD2
 
 可以参考[这篇](https://gist.github.com/xavierfoucrier/c156027fcc6ae23bcee1204199f177da)，以下提供简略步骤。
 
-### 1
+### 编辑 `.gitconfig` 文件
 
 打开 `.gitconfig` 文件
 
@@ -71,13 +72,6 @@ $ git config --global --edit
 # 方法二
 $ vim C:\Users\xxx\.gitconfig
 ```
-
----
-* ToC
-{:toc}
----
-
-### 2
 
 添加以下内容
 
@@ -96,7 +90,7 @@ $ vim C:\Users\xxx\.gitconfig
 
 1. Windows 下的 GPG 程序路径需要这样的格式： `C:\\Program Files\\Git\\usr\\bin\\gpg.exe` （注意双反斜杠 `\` ），否则会出现配置文件错误 `fatal: error in line xx` 。
 
-### 3
+### 安装 GPG 图形客户端
 
 **!!! 重点注意：Windows 和 Mac 系统下需要安装一个 GPG 图形客户端才能正常使用 GPG 签名。否则在 `Commit` 时会出现类似以下的错误，这是缺少输入密钥密码的地方所导致的。**
 
@@ -110,4 +104,3 @@ Mac 下推荐安装 [Mac GPG](https://gpgtools.org/)，Windows 下推荐安装 [
 完成以上三个步骤之后回到 Github Desktop 测试 `Commit` ，会弹出一个对话框要求输入 GPG 密钥密码，说明配置成功。
 
 **- - 全文终 - -**
-
