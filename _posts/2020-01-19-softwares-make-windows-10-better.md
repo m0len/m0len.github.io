@@ -8,7 +8,7 @@ categories: [OS]
 tags: [windows, software, linux, mac, wsl, everything, sharpkeys, winhotkey, terminal, powershell, aquasnap, powertoys, photon, aria2, vscode]
 ---
 
----
+**目录**
 * ToC
 {:toc}
 ---

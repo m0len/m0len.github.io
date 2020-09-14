@@ -8,7 +8,7 @@ categories: [OS]
 tags: [debian, lvm, luks, encrypt]
 ---
 
----
+**目录**
 * ToC
 {:toc}
 ---
