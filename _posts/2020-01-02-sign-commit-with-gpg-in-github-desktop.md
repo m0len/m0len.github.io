@@ -8,6 +8,10 @@ categories: [Security]
 tags: [github, gpg, commit, desktop]
 ---
 
+* ToC
+{:toc}
+---
+
 > 2020的第一篇。新的一年，祝好。
 
 ## 生成密钥对并添加到 Github
