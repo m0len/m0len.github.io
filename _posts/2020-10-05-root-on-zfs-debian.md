@@ -411,14 +411,14 @@ zfs set canmount=on     bpool/BOOT/debian
 zfs set canmount=noauto rpool/ROOT/debian
 ```
 
-**如果成功，则停止 `zed` **
+**如果成功，则停止 `zed`**
 
 ``` 
 fg
 按 `Ctrl-C`
 ```
 
-**修复路径，清除 `/mnt` **
+**修复路径，清除 `/mnt`**
 
 ``` 
 sed -Ei "s|/mnt/?|/|" /etc/zfs/zfs-list.cache/*
@@ -575,7 +575,7 @@ systemctl restart ssh
 
 ## 创建真用户并加密家目录
 
-**1. 创建一个新用户，本文中称为 `realuser` **
+**1. 创建一个新用户，本文中称为 `realuser`**
 
 ``` 
 adduser realuser
@@ -588,7 +588,7 @@ mkdir ~/realuser_home
 cp /home/realuser/.* ~/realuser_home
 ```
 
-**3. 创建 ZFS Mirror pool，称为 `realhome` **
+**3. 创建 ZFS Mirror pool，称为 `realhome`**
 
 ``` 
 # 如果磁盘容量不一样，需要加上 `-f`
