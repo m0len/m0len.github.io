@@ -98,7 +98,6 @@ sgdisk     -n2:1M:+512M   -t2:EF00  /dev/sdX
 ...
 ```
 
-
 **创建大小为 1 GB 的 `/boot` 分区**
 
 *该操作需要对**所有系统盘**执行。
@@ -108,7 +107,6 @@ sgdisk     -n3:0:+1G      -t3:BF01  /dev/sdX
 ...
 ```
 
-
 **创建大小为所有剩余空间的 `/` 分区**
 
 *该操作需要对**所有系统盘**执行。
@@ -117,7 +115,6 @@ sgdisk     -n3:0:+1G      -t3:BF01  /dev/sdX
 sgdisk     -n4:0:0        -t4:BF00  /dev/sdX
 ...
 ```
-
 
 ## 创建作为 `/boot` 分区的池（boot pool），称为 `bpool`
 
@@ -146,11 +143,12 @@ zpool create \
     /dev/sdX3
 ```
 
-
 ## 创建作为 `/` 分区的池（root pool），称为 `rpool`
 
 *该操作需要对**加入 Mirror 的所有系统盘的第 4 个分区**执行，如 `/dev/sda4` 和 `/dev/sdb4` 。
+
 *由于使用无头服务器，本文没有使用 ZFS 提供的加密，有需要的话可以去官方教程处研究。
+
 ``` 
 zpool create \
     -o ashift=12 \
@@ -161,8 +159,6 @@ zpool create \
     /dev/sdX4 \
     /dev/sdX4
 ```
-
-
 
 ## 安装最小（minimal）系统
 
@@ -306,6 +302,8 @@ echo REMAKE_INITRD=yes > /etc/dkms/zfs.conf
 
 **7. 安装 GRUB**
 
+*该操作只需要对**加入 Mirror 的 1 个系统盘的第 2 个分区**执行，如 `/dev/sda2` 。
+
 ``` 
 apt install dosfstools
 mkdosfs -F 32 -s 1 -n EFI /dev/sdX2
@@ -316,9 +314,7 @@ mount /boot/efi
 apt install --yes grub-efi-amd64 shim-signed
 ```
 
-* 该操作只需要对**加入 Mirror 的 1 个系统盘的第 2 个分区**执行，如 `/dev/sda2` 。
-
-**8. 删除不需要的 `os-prober`**
+**8. 删除不需要的 `os-prober` **
 
 ``` 
 dpkg --purge os-prober
@@ -415,14 +411,14 @@ zfs set canmount=on     bpool/BOOT/debian
 zfs set canmount=noauto rpool/ROOT/debian
 ```
 
-**如果成功，则停止 `zed`**
+**如果成功，则停止 `zed` **
 
 ``` 
 fg
 按 `Ctrl-C`
 ```
 
-**修复路径，清除 `/mnt`**
+**修复路径，清除 `/mnt` **
 
 ``` 
 sed -Ei "s|/mnt/?|/|" /etc/zfs/zfs-list.cache/*
@@ -579,7 +575,7 @@ systemctl restart ssh
 
 ## 创建真用户并加密家目录
 
-**1. 创建一个新用户，本文中称为 `realuser`**
+**1. 创建一个新用户，本文中称为 `realuser` **
 
 ``` 
 adduser realuser
@@ -592,7 +588,7 @@ mkdir ~/realuser_home
 cp /home/realuser/.* ~/realuser_home
 ```
 
-**3. 创建 ZFS Mirror pool，称为 `realhome`**
+**3. 创建 ZFS Mirror pool，称为 `realhome` **
 
 ``` 
 # 如果磁盘容量不一样，需要加上 `-f`
