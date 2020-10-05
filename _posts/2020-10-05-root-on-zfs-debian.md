@@ -43,7 +43,7 @@ tags: [debian, zfs, zpool, installation, encryption]
 
 **1. 下载 Debian 10 Live 镜像**
 
-https://www.debian.org/CD/live/
+[https://www.debian.org/CD/live/](https://www.debian.org/CD/live/)
 
 **2. 进入 Live 环境，并配置好网卡和网络连接**
 
@@ -69,7 +69,7 @@ modprobe zfs
 apt install --yes -t buster-backports zfsutils-linux
 ```
 
-* 以上步骤会安装 DKMS 并使用其管理 ZFS 模块。。
+*以上步骤会安装 DKMS 并使用其管理 ZFS 模块。
 
 ## 磁盘分区
 
@@ -79,44 +79,49 @@ apt install --yes -t buster-backports zfsutils-linux
 
 **1. 确认无误后，删除所有磁盘的所有分区，请提前备份好数据。**
 
+*该操作需要对**所有磁盘**执行。
+
 ``` 
 sgdisk --zap-all /dev/sdX
 sgdisk --zap-all /dev/sdY
 ...
 ```
 
-* 该操作需要对**所有磁盘**执行。
-
 **2. 磁盘分区**
 
 **创建大小为 512 MB 的 EFI 分区**
+
+*该操作需要对**所有系统盘**执行。
 
 ``` 
 sgdisk     -n2:1M:+512M   -t2:EF00  /dev/sdX
 ...
 ```
 
-* 该操作需要对**所有系统盘**执行。
 
 **创建大小为 1 GB 的 `/boot` 分区**
+
+*该操作需要对**所有系统盘**执行。
 
 ``` 
 sgdisk     -n3:0:+1G      -t3:BF01  /dev/sdX
 ...
 ```
 
-* 该操作需要对**所有系统盘**执行。
 
 **创建大小为所有剩余空间的 `/` 分区**
+
+*该操作需要对**所有系统盘**执行。
 
 ``` 
 sgdisk     -n4:0:0        -t4:BF00  /dev/sdX
 ...
 ```
 
-* 该操作需要对**所有系统盘**执行。
 
 ## 创建作为 `/boot` 分区的池（boot pool），称为 `bpool`
+
+*该操作需要对**加入 Mirror 的所有系统盘的第 3 个分区**执行，如 `/dev/sda3` 和 `/dev/sdb3` 。
 
 ``` 
 zpool create \
@@ -141,10 +146,11 @@ zpool create \
     /dev/sdX3
 ```
 
-* 该操作需要对**加入 Mirror 的所有系统盘的第 3 个分区**执行，如 `/dev/sda3` 和 `/dev/sdb3` 。
 
 ## 创建作为 `/` 分区的池（root pool），称为 `rpool`
 
+*该操作需要对**加入 Mirror 的所有系统盘的第 4 个分区**执行，如 `/dev/sda4` 和 `/dev/sdb4` 。
+*由于使用无头服务器，本文没有使用 ZFS 提供的加密，有需要的话可以去官方教程处研究。
 ``` 
 zpool create \
     -o ashift=12 \
@@ -156,8 +162,7 @@ zpool create \
     /dev/sdX4
 ```
 
-* 该操作需要对**加入 Mirror 的所有系统盘的第 4 个分区**执行，如 `/dev/sda4` 和 `/dev/sdb4` 。
-* 由于使用无头服务器，本文没有使用 ZFS 提供的加密，有需要的话可以去官方教程处研究。
+
 
 ## 安装最小（minimal）系统
 
@@ -179,7 +184,7 @@ zfs create -o mountpoint=/boot bpool/BOOT/debian
 
 **3. 创建 dataset**
 
-* 必选
+*必选
 
 ``` 
 zfs create                                 rpool/home
@@ -190,7 +195,7 @@ zfs create                                 rpool/var/log
 zfs create                                 rpool/var/spool
 ```
 
-* 可选
+*可选
 
 ``` 
 # 将 `/var/cache` 和 `/var/tmp` 排除在自动快照外
@@ -273,7 +278,7 @@ Pin-Priority: 990
 mount --rbind /dev  /mnt/dev
 mount --rbind /proc /mnt/proc
 mount --rbind /sys  /mnt/sys
-chroot /mnt /usr/bin/env DISK=$DISK bash --login
+chroot /mnt /usr/bin/env DISK=/dev/sdX bash --login
 ```
 
 **5. 配置基本系统环境**
@@ -313,7 +318,7 @@ apt install --yes grub-efi-amd64 shim-signed
 
 * 该操作只需要对**加入 Mirror 的 1 个系统盘的第 2 个分区**执行，如 `/dev/sda2` 。
 
-**8. 删除不需要的 `os-prober` **
+**8. 删除不需要的 `os-prober`**
 
 ``` 
 dpkg --purge os-prober
@@ -410,14 +415,14 @@ zfs set canmount=on     bpool/BOOT/debian
 zfs set canmount=noauto rpool/ROOT/debian
 ```
 
-**如果成功，则停止 `zed` **
+**如果成功，则停止 `zed`**
 
 ``` 
 fg
 按 `Ctrl-C`
 ```
 
-**修复路径，清除 `/mnt` **
+**修复路径，清除 `/mnt`**
 
 ``` 
 sed -Ei "s|/mnt/?|/|" /etc/zfs/zfs-list.cache/*
@@ -564,7 +569,7 @@ sudo usermod -p '*' root
 ``` 
 vi /etc/ssh/sshd_config
 
-# 删除下面的行 
+# 找到下面的行并删除 
 PermitRootLogin yes
 
 systemctl restart ssh
@@ -574,7 +579,7 @@ systemctl restart ssh
 
 ## 创建真用户并加密家目录
 
-**1. 创建一个新用户，本文中称为 `realuser` **
+**1. 创建一个新用户，本文中称为 `realuser`**
 
 ``` 
 adduser realuser
@@ -587,7 +592,7 @@ mkdir ~/realuser_home
 cp /home/realuser/.* ~/realuser_home
 ```
 
-**3. 创建 ZFS Mirror pool，称为 `realhome` **
+**3. 创建 ZFS Mirror pool，称为 `realhome`**
 
 ``` 
 # 如果磁盘容量不一样，需要加上 `-f`
