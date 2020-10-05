@@ -5,7 +5,7 @@ comments: true
 date: 2020-01-19
 description: ""
 categories: [OS]
-tags: [windows, software, linux, mac, wsl, everything, sharpkeys, winhotkey, terminal, powershell, aquasnap, powertoys, photon, aria2, vscode]
+tags: [windows, software, linux, mac, wsl, everything, sharpkeys, winhotkey, terminal, powershell, aquasnap, powertoys, photon, aria2, vscode, 效率, win10, windows10]
 ---
 
 **目录**

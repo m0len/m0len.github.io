@@ -314,7 +314,7 @@ mount /boot/efi
 apt install --yes grub-efi-amd64 shim-signed
 ```
 
-**8. 删除不需要的 `os-prober` **
+**8. 删除不需要的 `os-prober`**
 
 ``` 
 dpkg --purge os-prober
