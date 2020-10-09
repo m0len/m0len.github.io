@@ -11,7 +11,7 @@ permalink: /categories
     {% for category in categories %}
     <li id="{{ category | first }}">
       <div class="category-name">{{ category | first }}</div>
-      {% assign sorted_posts = site.posts | sort: 'date' %}
+      {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
       {% for post in sorted_posts %}
         {% if post.categories contains category[0] %}
         <div class="category-list-item">
