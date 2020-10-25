@@ -24,6 +24,7 @@ tags: [grafana, asus, merlin, python, crawling, crawler]
 在路由器的管理页面上，有我所需要的所有数据，于是希望用爬虫的方式从这里提取数据，经过处理之后放进 MySQL 数据库中作为数据源，然后用 Grafana 面板展示数据。经过一番研究和完善，发现这算是最容易的方法了。
 
 **完整工作流：**
+
 ``` bash
 爬虫提取数据 -> 存放在 MySQL -> Grafana 展示图表
 ```
@@ -31,15 +32,17 @@ tags: [grafana, asus, merlin, python, crawling, crawler]
 ## 数据篇
 
 在路由器管理页打开浏览器控制台就能看到一堆定时的 XHR，通过观察很容易就能找到查询数据的几个请求 URL，分别是：
+
 1. `http://ip/update.cgi` ——查询网速（WAN、WiFi、LAN）
 2. `http://ip/ajax_coretmp.asp` ——查询温度（2.4G芯片、5G芯片、CPU）
 3. `http://ip/cpu_ram_status.xml` ——查询 CPU 和内存使用
 
-以上三个 URL 都是通过读取 Cookies 来认证，然后在 Cookie 里面可以找到一个键值对 `'asus_token': ''`，值是一串数字。那么如何获得这串数字呢，再登录一次页面，观察登录请求就会发现另一个 URL `http://ip/login.cgi`，POST 请求里面有一串 Base64 编码的字符串，通过解码就可以发现是 `user:password` 的格式。到此，整个登录的流程已经清楚了。
+以上三个 URL 都是通过读取 Cookies 来认证，然后在 Cookie 里面可以找到一个键值对 `'asus_token': ''` ，值是一串数字。那么如何获得这串数字呢，再登录一次页面，观察登录请求就会发现另一个 URL `http://ip/login.cgi` ，POST 请求里面有一串 Base64 编码的字符串，通过解码就可以发现是 `user:password` 的格式。到此，整个登录的流程已经清楚了。
 
 通过以上 URL，就可以用一个脚本定时获取所需的所有数据，写入 MySQL 后端存储。
 
 **示例代码：**
+
 ``` python
 import requests
 import regex as re
@@ -131,14 +134,15 @@ def getData(token):
     statusResult2 = ET.fromstring(statusResponse2.text)
     ...
 ```
-稍微处理一下数据即可。
 
+稍微处理一下数据即可。
 
 ## 数据库篇
 
 数据获取到了，怎么存储也是一个问题，但是这个问题简单。
 
 **Grafana 官方支持以下数据源：**
+
 * AWS CloudWatch
 * Azure Monitor
 * Elasticsearch
@@ -159,6 +163,7 @@ def getData(token):
 可以看到基本上都是各种数据库，所以这里选一个自己熟悉的就可以了，这里我选择了 MySQL。为了方便起见，直接用 Docker 搭建。
 
 **Docker Compose 配置：**
+
 ``` yaml
 version: "3"
 
@@ -175,12 +180,15 @@ services:
 ```
 
 **创建数据库：**
+
 ``` sql
 mysql> CREATE DATABASE db_name;
 ```
 
 **创建数据表：**
+
 共 14 种数据，加 1 个时间戳。
+
 ``` sql
 mysql> CREATE TABLE table_name (
           internetRXSpeed FLOAT, 
@@ -205,7 +213,9 @@ mysql> CREATE TABLE table_name (
 Grafana 是一个常用的数据可视化工具，提供多种面板和相对自由而简单的设置，还能实时展示。同样地，为了方便，使用了 Docker 搭建。
 
 **Docker Compose 配置：**
+
 Grafana Docker 的配置推荐使用环境变量来设置，而不是挂载配置文件并修改。
+
 ``` yaml
 version: "3"
 
@@ -217,10 +227,14 @@ services:
     restart: always
     network_mode: host
     volumes:
+
       - /root/grafana-data:/var/lib/grafana
+
     environment:
+
       - GF_DASHBOARDS_MIN_REFRESH_INTERVAL=1s
       - GF_AUTH_ANONYMOUS_ENABLED=true
+
 ```
 
 至此，通过一些设置，就可以调出自己需要的数据展示方式。
