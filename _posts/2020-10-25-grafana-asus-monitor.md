@@ -227,11 +227,8 @@ services:
     restart: always
     network_mode: host
     volumes:
-
       - /root/grafana-data:/var/lib/grafana
-
     environment:
-
       - GF_DASHBOARDS_MIN_REFRESH_INTERVAL=1s
       - GF_AUTH_ANONYMOUS_ENABLED=true
 
