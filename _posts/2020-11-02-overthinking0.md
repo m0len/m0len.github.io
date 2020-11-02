@@ -2,7 +2,7 @@
 layout: 
 title: ""
 comments: true
-date: 2020-11-02
+date: 
 description: ""
 categories: []
 tags: []
