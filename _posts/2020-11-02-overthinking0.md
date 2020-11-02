@@ -2,7 +2,7 @@
 layout: 
 title: ""
 comments: true
-date: 
+date: 0000-00-00
 description: ""
 categories: []
 tags: []
